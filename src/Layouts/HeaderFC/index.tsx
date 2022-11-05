@@ -2,7 +2,6 @@ import './header.scss';
 import type { MenuProps } from 'antd';
 import { Menu, Layout, Button } from 'antd';
 import { useState } from 'react';
-import useStyles from './style';
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 
 const { Header } = Layout;

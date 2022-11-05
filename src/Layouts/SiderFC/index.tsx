@@ -2,7 +2,7 @@ import './sider.scss';
 import type { MenuProps } from 'antd';
 import { Menu, Layout } from 'antd';
 import { AppstoreOutlined, ContainerOutlined, DesktopOutlined, MailOutlined } from '@ant-design/icons';
-import React, { useState } from 'react';
+import React from 'react';
 
 const { Sider } = Layout;
 type MenuItem = Required<MenuProps>['items'][number];

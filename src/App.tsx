@@ -4,7 +4,7 @@ import './App.css';
 import Button from '~/components/Button'
 
 
-function App() {
+const  App: React.FC<any> = () => {
   return (
     <div className="App">
       <header className="App-header">

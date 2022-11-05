@@ -1,5 +1,9 @@
 const Button = () => {
-    return <button>tttt</button>
-}
+    const handleClick = () => {
+        console.log('xxnxx');
+    };
+
+    return <button onClick={() => handleClick()}>tttt</button>;
+};
 
 export default Button;

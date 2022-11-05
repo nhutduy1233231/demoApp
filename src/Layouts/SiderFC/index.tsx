@@ -23,15 +23,8 @@ const SiderFC: React.FC<any> = () => {
         };
     });
     return (
-        <Sider width={200} className="site-layout-background">
-            <Menu
-                mode="inline"
-                defaultSelectedKeys={['1']}
-                defaultOpenKeys={['sub1']}
-                style={{ height: '100%', borderRight: 0 }}
-                items={items2}
-                inlineCollapsed={true}
-            />
+        <Sider collapsed={false} width={200} className="site-layout-background">
+            <Menu mode="inline" defaultSelectedKeys={['1']} style={{ height: '100%', borderRight: 0 }} items={items2} />
         </Sider>
     );
 };

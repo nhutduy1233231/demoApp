@@ -1,10 +1,4 @@
 import { createUseStyles } from 'react-jss';
 
-const useStyles = createUseStyles({
-    myColorxxx: {
-        '& .ant-menu-overflow-item': {
-            color: 'red',
-        },
-    },
-});
+const useStyles = createUseStyles({});
 export default useStyles;

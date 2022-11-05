@@ -1,25 +1,13 @@
+import './sider.scss';
 import type { MenuProps } from 'antd';
-import { Menu, Layout, Button } from 'antd';
-import {
-    AppstoreOutlined,
-    ContainerOutlined,
-    DesktopOutlined,
-    MailOutlined,
-    MenuFoldOutlined,
-    MenuUnfoldOutlined,
-} from '@ant-design/icons';
+import { Menu, Layout } from 'antd';
+import { AppstoreOutlined, ContainerOutlined, DesktopOutlined, MailOutlined } from '@ant-design/icons';
 import React, { useState } from 'react';
 
 const { Sider } = Layout;
 type MenuItem = Required<MenuProps>['items'][number];
 
 const SiderFC: React.FC<any> = () => {
-    const [collapsed, setCollapsed] = useState(false);
-
-    const toggleCollapsed = () => {
-        setCollapsed(!collapsed);
-    };
-
     const getItem = (
         label: React.ReactNode,
         key: React.Key,
@@ -37,16 +25,9 @@ const SiderFC: React.FC<any> = () => {
     };
 
     const items: MenuItem[] = [
-        getItem(
-            '',
-            '1',
-            <Button type="primary" onClick={toggleCollapsed} style={{ marginBottom: 16 }}>
-                {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-            </Button>,
-        ),
+        getItem('Option 1', '1', <DesktopOutlined />),
         getItem('Option 2', '2', <DesktopOutlined />),
         getItem('Option 3', '3', <ContainerOutlined />),
-
         getItem('Navigation One', 'sub1', <MailOutlined />, [
             getItem('Option 5', '5'),
             getItem('Option 6', '6'),
@@ -63,15 +44,8 @@ const SiderFC: React.FC<any> = () => {
     ];
 
     return (
-        <Sider collapsed={collapsed} width={200} className="site-layout-background">
-            <Menu
-                className=""
-                defaultSelectedKeys={['1']}
-                defaultOpenKeys={['sub1']}
-                mode="inline"
-                items={items}
-                style={{ height: '100%', borderRight: 0 }}
-            />
+        <Sider collapsed={false} width={200} className="site-layout-background">
+            <Menu defaultSelectedKeys={['1']} defaultOpenKeys={['sub1']} mode="inline" items={items} />
         </Sider>
     );
 };

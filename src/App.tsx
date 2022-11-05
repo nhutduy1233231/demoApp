@@ -1,10 +1,16 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { publicRoute } from './Routes';
 
 const App: React.FC<any> = () => {
     return (
-        <div className="App">
-            <header className="App-header">react App</header>
-        </div>
+        <Router>
+            <Routes>
+                {publicRoute?.map((route: any, index: number) => {
+                    return <Route key={index} path={route.path} element={<route.component />} />;
+                })}
+            </Routes>
+        </Router>
     );
 };
 

@@ -1,16 +1,20 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { publicRoute } from './Routes';
+import { Layout } from 'antd';
+import HeaderFC from './Layouts/HeaderFC';
+import SiderFC from './Layouts/SiderFC';
+import ContentFC from './Layouts/ContentFC';
 
 const App: React.FC<any> = () => {
     return (
-        <Router>
-            <Routes>
-                {publicRoute?.map((route: any, index: number) => {
-                    return <Route key={index} path={route.path} element={<route.component />} />;
-                })}
-            </Routes>
-        </Router>
+        <div className="container">
+            <Layout style={{ height: '100%' }}>
+                <HeaderFC />
+                <Layout>
+                    <SiderFC />
+                    <ContentFC />
+                </Layout>
+            </Layout>
+        </div>
     );
 };
 

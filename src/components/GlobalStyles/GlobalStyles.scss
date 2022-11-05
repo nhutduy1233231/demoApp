@@ -1,5 +1,6 @@
 @import 'normalize.css';
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;1,100;1,300;1,500;1,700&display=swap');
+@import 'antd/dist/antd.css';
 
 :root {
     --primary: '#fe2c55';
@@ -14,4 +15,32 @@ body {
     font-size: 1.6rem;
     line-height: 1.5px;
     text-rendering: optimizeSpeed;
+    color: red;
+}
+
+#root {
+    height: 100%;
+    .container {
+        height: 100%;
+        // .ant-layout.ant-layout-has-sider {
+        //     height: 100%;
+        // }
+    }
+}
+
+#components-layout-demo-top-side-2 .logo {
+    float: left;
+    width: 120px;
+    height: 31px;
+    margin: 16px 24px 16px 0;
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.ant-row-rtl #components-layout-demo-top-side-2 .logo {
+    float: right;
+    margin: 16px 0 16px 24px;
+}
+
+.site-layout-background {
+    background: #fff;
 }

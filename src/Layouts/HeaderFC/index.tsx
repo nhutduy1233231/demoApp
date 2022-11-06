@@ -4,6 +4,7 @@ import { Menu, Layout, Button } from 'antd';
 import { useContext } from 'react';
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import { typeContext } from '~/common/types';
+import { memo } from 'react';
 import { LayOutsContext } from '..';
 
 const { Header } = Layout;
@@ -28,4 +29,4 @@ const HeaderFC: React.FC<any> = () => {
     );
 };
 
-export default HeaderFC;
+export default memo(HeaderFC);

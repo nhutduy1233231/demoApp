@@ -4,6 +4,7 @@ import { MenuProps } from 'antd';
 import { Menu, Layout } from 'antd';
 import { AppstoreOutlined, ContainerOutlined, DesktopOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
 import { LayOutsContext } from '~/Layouts';
+import { memo } from 'react';
 import { typeContext } from '~/common/types';
 
 const { Sider } = Layout;
@@ -77,4 +78,4 @@ const SiderFC: React.FC<any> = () => {
     );
 };
 
-export default SiderFC;
+export default memo(SiderFC);

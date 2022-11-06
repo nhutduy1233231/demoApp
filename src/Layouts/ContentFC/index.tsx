@@ -1,6 +1,7 @@
 import { Breadcrumb, Layout } from 'antd';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { publicRoute } from '~/Routes';
+import { memo } from 'react';
 
 const { Content } = Layout;
 const ContentFC: React.FC<any> = () => {
@@ -30,4 +31,4 @@ const ContentFC: React.FC<any> = () => {
     );
 };
 
-export default ContentFC;
+export default memo(ContentFC);

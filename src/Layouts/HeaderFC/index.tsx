@@ -1,13 +1,17 @@
 import './header.scss';
 import type { MenuProps } from 'antd';
 import { Menu, Layout, Button } from 'antd';
-import { useState } from 'react';
+import { useContext } from 'react';
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
+import { typeContext } from '~/common/types';
+import { LayOutsContext } from '..';
 
 const { Header } = Layout;
 
 const HeaderFC: React.FC<any> = () => {
-    const [collapsed, setCollapsed] = useState(false);
+    const valueContext: typeContext = useContext(LayOutsContext);
+    const { collapsed, setCollapsed } = valueContext;
+
     const toggleCollapsed = () => {
         setCollapsed(!collapsed);
     };

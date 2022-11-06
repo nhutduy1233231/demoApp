@@ -1,12 +1,16 @@
 import './style.scss';
+import React, { useContext } from 'react';
 import { MenuProps } from 'antd';
 import { Menu, Layout } from 'antd';
 import { AppstoreOutlined, ContainerOutlined, DesktopOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
-import React from 'react';
+import { LayOutsContext } from '~/Layouts';
+import { typeContext } from '~/common/types';
 
 const { Sider } = Layout;
-
 const SiderFC: React.FC<any> = () => {
+    const valueContext: typeContext = useContext(LayOutsContext);
+    const { collapsed } = valueContext;
+
     const items: MenuProps['items'] = [
         {
             label: 'case 1',
@@ -67,7 +71,7 @@ const SiderFC: React.FC<any> = () => {
     ];
 
     return (
-        <Sider collapsed={false} width={200} className="site-layout-background">
+        <Sider collapsed={collapsed} width={200} className="site-layout-background">
             <Menu defaultSelectedKeys={['1']} defaultOpenKeys={[]} mode="inline" items={items} />
         </Sider>
     );

@@ -15,6 +15,7 @@ const ContentFC: React.FC<any> = () => {
                     padding: 24,
                     margin: 0,
                     minHeight: 280,
+                    height: '100%',
                 }}
             >
                 <Router>

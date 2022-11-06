@@ -1,43 +1,69 @@
 import './style.scss';
-import type { MenuProps } from 'antd';
+import { MenuProps } from 'antd';
 import { Menu, Layout } from 'antd';
 import { AppstoreOutlined, ContainerOutlined, DesktopOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
 import React from 'react';
 
 const { Sider } = Layout;
-type MenuItem = Required<MenuProps>['items'][number];
 
-const getItem = (
-    label: React.ReactNode,
-    key: React.Key,
-    icon?: React.ReactNode,
-    children?: MenuItem[],
-    type?: 'group',
-): MenuItem => {
-    return {
-        key,
-        icon,
-        children,
-        label,
-        type,
-    } as MenuItem;
-};
 const SiderFC: React.FC<any> = () => {
-    const items: MenuItem[] = [
-        getItem('Option 1', '1', <DesktopOutlined />),
-        getItem('Option 2', '2', <DesktopOutlined />),
-        getItem('Option 3', '3', <ContainerOutlined />),
-        getItem('Navigation One', 'sub1', <MailOutlined />, [
-            getItem('Option 5', '5'),
-            getItem('Option 6', '6'),
-            getItem('Option 7', '7'),
-            getItem('Option 8', '8'),
-        ]),
-        getItem('Navigation Two', 'sub2', <AppstoreOutlined />, [
-            getItem('Option 9', '9'),
-            getItem('Option 10', '10'),
-            getItem('Submenu', 'sub3', null, [getItem('Option 11', '11'), getItem('Option 12', '12')]),
-        ]),
+    const items: MenuProps['items'] = [
+        {
+            label: 'case 1',
+            key: '1',
+            icon: <DesktopOutlined />,
+        },
+        {
+            label: 'case 2',
+            key: '2',
+            icon: <AppstoreOutlined />,
+        },
+        {
+            type: 'divider',
+        },
+        {
+            label: 'case 3',
+            key: '3',
+            icon: <ContainerOutlined />,
+        },
+        {
+            label: 'case 4',
+            key: '4',
+            children: [
+                {
+                    label: 'case 5',
+                    key: '5',
+                    icon: <MailOutlined />,
+                },
+            ],
+        },
+        {
+            label: 'case 6',
+            key: '6',
+            children: [
+                {
+                    label: 'case 7',
+                    key: '7',
+                    icon: <DesktopOutlined />,
+                },
+                {
+                    label: 'case 8',
+                    key: '8',
+                    children: [
+                        {
+                            label: 'case 9',
+                            key: '9',
+                            icon: <SettingOutlined />,
+                        },
+                        {
+                            label: 'case 10',
+                            key: '10',
+                            icon: <DesktopOutlined />,
+                        },
+                    ],
+                },
+            ],
+        },
     ];
 
     return (

@@ -5,8 +5,8 @@ import { Menu, Layout } from 'antd';
 import { AppstoreOutlined, ContainerOutlined, DesktopOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
 import { LayOutsContext } from '~/Layouts';
 import { memo } from 'react';
-import { typeContext } from '~/common/types';
-import { isNullOrEmpty } from '~/common/common';
+import { isNullOrEmpty } from '~/helper/common';
+import { typeContext } from '~/enums/types';
 
 const { Sider } = Layout;
 const SiderFC: React.FC<any> = () => {

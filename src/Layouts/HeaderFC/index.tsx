@@ -3,9 +3,9 @@ import type { MenuProps } from 'antd';
 import { Menu, Layout, Button } from 'antd';
 import { useContext } from 'react';
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
-import { typeContext } from '~/common/types';
 import { memo } from 'react';
 import { LayOutsContext } from '..';
+import { typeContext } from '~/enums/types';
 
 const { Header } = Layout;
 

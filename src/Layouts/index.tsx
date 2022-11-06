@@ -3,7 +3,7 @@ import { Layout } from 'antd';
 import HeaderFC from './HeaderFC';
 import SiderFC from './SiderFC';
 import ContentFC from './ContentFC';
-import { typeContext } from '~/common/types';
+import { typeContext } from '~/enums/types';
 
 export const LayOutsContext: any = createContext({});
 

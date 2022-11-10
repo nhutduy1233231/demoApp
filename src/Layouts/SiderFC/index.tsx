@@ -5,7 +5,6 @@ import { Menu, Layout } from 'antd';
 import { AppstoreOutlined, ContainerOutlined, DesktopOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
 import { LayOutsContext } from '~/Layouts';
 import { memo } from 'react';
-import { isNullOrEmpty } from '~/helper/common';
 import { typeContext } from '~/enums/types';
 
 const { Sider } = Layout;
@@ -13,7 +12,7 @@ const SiderFC: React.FC<any> = () => {
     const valueContext: typeContext = useContext(LayOutsContext);
     const { collapsed } = valueContext;
     const [activeKey, setActiveKey] = useState([]);
-    const [activeSubKey, setActiveSubKey] = useState() as any;
+    const [openKeys, setOpenKeys] = useState(['6', '8']);
 
     const getItem = (label: String, key: any, icon: any, children?: Array<any>) => {
         return {
@@ -41,28 +40,29 @@ const SiderFC: React.FC<any> = () => {
             getItem('case 8', 8, '', [getItem('case 9', 9, '')]),
         ]),
     ];
+    const rootSubmenuKeys = ['4', '6'];
+    const onOpenChange: MenuProps['onOpenChange'] = (keys) => {
+        const latestOpenKey = keys.find((key) => openKeys.indexOf(key) === -1);
+        if (rootSubmenuKeys.indexOf(latestOpenKey!) === -1) {
+            setOpenKeys(keys);
+        } else {
+            setOpenKeys(latestOpenKey ? [latestOpenKey] : []);
+        }
+    };
 
     const handleActive = ({ key }: any) => {
         setActiveKey(key);
     };
 
-    const handleActiveSubTab = (openKeys: any) => {
-        const result = openKeys?.filter((el: any) => {
-            if (!isNullOrEmpty(el)) return el;
-        });
-        setActiveSubKey(result);
-    };
-
     return (
         <Sider collapsed={collapsed} width={200} className="site-layout-background">
             <Menu
-                triggerSubMenuAction={'hover'}
                 onClick={({ key, keyPath }) => handleActive({ key, keyPath })}
                 defaultSelectedKeys={activeKey?.length > 0 ? activeKey : [`${items[0]?.key}`]}
                 mode="inline"
                 items={items}
-                openKeys={activeSubKey}
-                onOpenChange={(openKeys) => handleActiveSubTab(openKeys)}
+                openKeys={openKeys}
+                onOpenChange={onOpenChange}
             />
         </Sider>
     );

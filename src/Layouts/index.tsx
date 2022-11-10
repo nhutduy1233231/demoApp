@@ -18,10 +18,12 @@ const Layouts: React.FC<any> = () => {
         <div className="container">
             <LayOutsContext.Provider value={valueContext}>
                 <Layout style={{ height: '100%' }}>
-                    <HeaderFC />
+                    <SiderFC />
                     <Layout>
-                        <SiderFC />
-                        <ContentFC />
+                        <HeaderFC />
+                        <Layout>
+                            <ContentFC />
+                        </Layout>
                     </Layout>
                 </Layout>
             </LayOutsContext.Provider>
